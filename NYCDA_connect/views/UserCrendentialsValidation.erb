@@ -1,0 +1,9 @@
+<% @user = User.where(params[:user]).first%>
+  <%if @user && @user.password == params[:password]%>
+    <%flash[:notice] = "You've successfully signed in."%>
+    <%session[:user_id] = @user.id%>
+    redirect '/user'
+  <%else%>
+   <% flash[:alert] = "Sorry, that user doesn't exist. Feel free to sign up."%>
+   redirect '/'
+  <%end%>
