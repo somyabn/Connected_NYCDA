@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="public\UserCredentialsValidation.css">
+<link rel="stylesheet" type="text/css" href="css/UserCredentialsValidation.css">
 </head>
-<body>
-	<div class="container">
-		<div class="main">
+<body class="signinbody">
+		<div class="header">
+		<img id="logo" src="http://nycda.com/wp-content/themes/nycda-2015/images/logo.svg" alt="logo">
+		<img id="connect" src="images/webconnect.jpg" alt="logo">
+		<h2 class "description">Platform for NYCDA students to blog their course experiance.</h2>
+		</div>
+		<div class="container">
+		<div class="container2">
+		<div class="signin">
+		<h2>Sign In</h2>
+		<form id="form_id2" action="/UserCrendentialsValidation" method="post" name="myform">
+		<label>User Name :</label>
+		<input type="text" name="username" id="username"/>
+		<label>Password :</label>
+		<input type="text" name="password" id="password"/>
+		<input type="submit" value="Submit">
+		</form>
+		<% if flash[:notice] %>
+         <div class="flash notice">
+         <%= flash[:notice] %>
+         </div>
+         <% end %>
+		</div>
+	</div>
+		<div class="container1">
+		<div class="signup">
 		<h2>Sign Up</h2>
-		<form id="form_id" action="/UserCrendentialsSave" method="post" name="myform">
+		<form id="form_id1" action="/UserCrendentialsSave" method="post" name="myform">
 		<label>First Name :</label>
 		<input type="text" name="firstname" id="firstname"/>
 		<label>Last Name :</label>
@@ -18,17 +41,16 @@
 		<input type="text" name="username" id="username"/>
 		<label>Password :</label>
 		<input type="text" name="password" id="password"/>
+		<label>Enrolled Courses :</label>
+		<div><input type="checkbox" name="1" value="on"> Web Development.</div>
+		<div><input type="checkbox" name="2" value="on"> Advanced Web Development.</div>
+		<div><input type="checkbox" name="3" value="on"> Mobile App Development.</div>
+		<div><input type="checkbox" name="4" value="on"> User Interface/Experience Design.</div>
+		<div><input type="checkbox" name="5" value="on"> Summer/After School Workshops for Kids/Teens</div>
 		<input type="submit" value="Submit">
 		</form>
 		</div>
-		<h2>Sign in</h2>
-		<form id="form_id" action="/UserCrendentialsValidation" method="post" name="myform">
-		<label>User Name :</label>
-		<input type="text" name="username" id="username"/>
-		<label>Password :</label>
-		<input type="text" name="password" id="password"/>
-		<input type="submit" value="Submit">
-		</form>
+		</div>
 	</div>
 </body>
 </html>

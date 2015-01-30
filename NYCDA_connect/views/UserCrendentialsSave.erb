@@ -1,1 +1,31 @@
-<%User.create(fname:params[:username],password:params[:password])%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/UserCredentialsValidation.css">
+</head>
+<body>
+<header class="header">
+<img id="logo" src="http://nycda.com/wp-content/themes/nycda-2015/images/logo.svg" alt="logo">
+<img id="connect" src="images/webconnect.jpg" alt="logo">
+</header>
+<div class="container1">
+		<div class="signup">
+		<h2>Sign Up</h2>
+		<form id="form_id1" action="/UserCrendentialsSave" method="post" name="myform">
+		<label>First Name :</label>
+		<input type="text" name="firstname" id="firstname"/>
+		<label>Last Name :</label>
+		<input type="text" name="lastname" id="lastname"/>
+		<label>Email :</label>
+		<input type="text" name="email" id="email"/>
+		<label>User Name :</label>
+		<input type="text" name="username" id="username"/>
+		<label>Password :</label>
+		<input type="text" name="password" id="password"/>
+		<input type="submit" value="Submit">
+		</form>
+		</div>
+		</div>
+		</body>
+</html>
+		

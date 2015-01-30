@@ -23,18 +23,26 @@ post '/UserCrendentialsSave' do
 end
 
 post '/UserCrendentialsValidation' do
- @user = User.where(params[:username]).first
+ @user = User.where(username: params[:username]).first
   if @user && @user.password == params[:password]
     flash[:notice] = "You've successfully signed in."
-
-    
     session[:user_id] = @user.id
     redirect '/user'
   else
    flash[:alert] = "Sorry, that user doesn't exist. Feel free to sign up."
    redirect '/'
-  end	
+  end
 end
 get'/user' do
 		erb :user
+end
+
+  get '/follow/:id' do
+  @relationship = Relationship.new(follower_id: current_user.id, followed_id: params[:id])
+  if @relationship.save
+    flash[:notice] = "You've successfully followed #{User.find(params[:id]).fname}."
+  else
+    flash[:alert] = "There was an error following that user."
+  end
+  redirect back
 end
